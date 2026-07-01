@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { COMPANY_STATS, SERVICES_DATA, WHY_CHOOSE_US_DATA, TEAM_MEMBERS_DATA } from '../data/mockData';
-import { Button } from '../components/ui/Button';
-import { Card } from '../components/ui/Card';
-import { DynamicIcon } from '../components/ui/DynamicIcon';
-import { ArrowRight, CheckCircle2, Cpu, Cloud, Award, Building2, Search, Globe, Zap, BarChart3, Sparkles, Users } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  COMPANY_STATS,
+  SERVICES_DATA,
+  WHY_CHOOSE_US_DATA,
+  TEAM_MEMBERS_DATA,
+} from "../data/mockData";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
+import { DynamicIcon } from "../components/ui/DynamicIcon";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Cpu,
+  Cloud,
+  Award,
+  Building2,
+  Search,
+  Globe,
+  Zap,
+  BarChart3,
+  Sparkles,
+  Users,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'mission' | 'architecture' | 'security'>('mission');
+  const [activeTab, setActiveTab] = useState<
+    "mission" | "architecture" | "security"
+  >("mission");
 
   const featuredServices = SERVICES_DATA.filter((s) => s.featured);
 
@@ -68,13 +88,14 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
                 className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal"
               >
-                Words are strong tools for human expression and the primary means through which search engines communicate information.
+                Words are strong tools for human expression and the primary
+                means through which search engines communicate information.
               </motion.p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                 <Button
                   size="lg"
-                  onClick={() => handleNavClick('/contact')}
+                  onClick={() => handleNavClick("/contact")}
                   icon={<ArrowRight className="w-5 h-5" />}
                   className="w-full sm:w-auto shadow-xl shadow-[#003152]/30"
                 >
@@ -83,7 +104,7 @@ export const HomePage: React.FC = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => handleNavClick('/services')}
+                  onClick={() => handleNavClick("/services")}
                   className="w-full sm:w-auto border-slate-600 text-white hover:bg-white/10 hover:border-slate-400"
                 >
                   Explore Capabilities
@@ -93,16 +114,28 @@ export const HomePage: React.FC = () => {
               {/* Quick Trust Highlights */}
               <div className="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-left">
                 <div>
-                  <div className="text-xl sm:text-2xl font-extrabold text-white">99.99%</div>
-                  <div className="text-xs text-slate-400">SLA Uptime Guarantee</div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">
+                    99.99%
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    SLA Uptime Guarantee
+                  </div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-extrabold text-white">SOC2 II</div>
-                  <div className="text-xs text-slate-400">& ISO 27001 Certified</div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">
+                    SOC2 II
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    & ISO 27001 Certified
+                  </div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-extrabold text-[#62aff0]">450+</div>
-                  <div className="text-xs text-slate-400">Enterprise Systems Built</div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-[#62aff0]">
+                    450+
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    Enterprise Systems Built
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -120,7 +153,7 @@ export const HomePage: React.FC = () => {
                 className="relative z-10 w-full rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-white/15 via-white/10 to-white/5 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,49,82,0.5)] overflow-hidden"
               >
                 {/* Subtle sheen highlight across top */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/50 to-transparent" />
 
                 {/* Header inside Glass Card */}
                 <div className="flex items-center justify-between pb-6 border-b border-white/15">
@@ -129,8 +162,12 @@ export const HomePage: React.FC = () => {
                       <Search className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-base font-extrabold text-white tracking-tight">Semantic Search Indexer</h3>
-                      <p className="text-xs text-[#a7d5fa]">Language Processing & Retrieval</p>
+                      <h3 className="text-base font-extrabold text-white tracking-tight">
+                        Semantic Search Indexer
+                      </h3>
+                      <p className="text-xs text-[#a7d5fa]">
+                        Language Processing & Retrieval
+                      </p>
                     </div>
                   </div>
                   <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30 flex items-center gap-1.5 shadow-sm">
@@ -143,14 +180,20 @@ export const HomePage: React.FC = () => {
                 <div className="my-6">
                   <div className="flex items-center justify-between text-xs text-slate-300 mb-2 font-medium">
                     <span>Query Semantic Depth</span>
-                    <span className="text-[#62aff0] font-bold">99.8% Precision</span>
+                    <span className="text-[#62aff0] font-bold">
+                      99.8% Precision
+                    </span>
                   </div>
                   <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: "94%" }}
-                      transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-[#003152] via-[#62aff0] to-cyan-300 rounded-full shadow-sm"
+                      transition={{
+                        duration: 1.2,
+                        delay: 0.6,
+                        ease: "easeOut",
+                      }}
+                      className="h-full bg-linear-to-r from-[#003152] via-[#62aff0] to-cyan-300 rounded-full shadow-sm"
                     />
                   </div>
                 </div>
@@ -160,19 +203,31 @@ export const HomePage: React.FC = () => {
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-md hover:bg-white/10 transition-colors group">
                     <div className="flex items-center justify-between mb-2">
                       <Globe className="w-5 h-5 text-[#62aff0]" />
-                      <span className="text-xs font-bold text-white">Global</span>
+                      <span className="text-xs font-bold text-white">
+                        Global
+                      </span>
                     </div>
-                    <div className="text-xl font-black text-white group-hover:scale-105 transition-transform origin-left">140M+</div>
-                    <div className="text-[11px] text-slate-300 mt-0.5">Indexed Expressions</div>
+                    <div className="text-xl font-black text-white group-hover:scale-105 transition-transform origin-left">
+                      140M+
+                    </div>
+                    <div className="text-[11px] text-slate-300 mt-0.5">
+                      Indexed Expressions
+                    </div>
                   </div>
 
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-md hover:bg-white/10 transition-colors group">
                     <div className="flex items-center justify-between mb-2">
                       <Sparkles className="w-5 h-5 text-[#62aff0]" />
-                      <span className="text-xs font-bold text-white">AI Engine</span>
+                      <span className="text-xs font-bold text-white">
+                        AI Engine
+                      </span>
                     </div>
-                    <div className="text-xl font-black text-white group-hover:scale-105 transition-transform origin-left">&lt; 12ms</div>
-                    <div className="text-[11px] text-slate-300 mt-0.5">Response Latency</div>
+                    <div className="text-xl font-black text-white group-hover:scale-105 transition-transform origin-left">
+                      &lt; 12ms
+                    </div>
+                    <div className="text-[11px] text-slate-300 mt-0.5">
+                      Response Latency
+                    </div>
                   </div>
                 </div>
 
@@ -182,7 +237,9 @@ export const HomePage: React.FC = () => {
                     <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-[#a7d5fa]">
                       <BarChart3 className="w-4 h-4" />
                     </div>
-                    <span className="text-xs text-slate-200 font-medium">Search Ranking Optimization Active</span>
+                    <span className="text-xs text-slate-200 font-medium">
+                      Search Ranking Optimization Active
+                    </span>
                   </div>
                   <Zap className="w-4 h-4 text-amber-400 fill-amber-400" />
                 </div>
@@ -195,16 +252,20 @@ export const HomePage: React.FC = () => {
                 transition={{
                   opacity: { duration: 0.6, delay: 0.5 },
                   x: { duration: 0.6, delay: 0.5 },
-                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 }}
-                className="absolute -top-4 -right-2 sm:-right-6 z-20 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#003152]/90 to-[#001c31]/90 backdrop-blur-xl border border-white/25 shadow-xl flex items-center gap-3"
+                className="absolute -top-4 -right-2 sm:-right-6 z-20 px-4 py-3 rounded-2xl bg-linear-to-r from-[#003152]/90 to-[#001c31]/90 backdrop-blur-xl border border-white/25 shadow-xl flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-full bg-[#62aff0]/20 text-[#62aff0] flex items-center justify-center font-bold text-sm">
                   ✓
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Human Expression</div>
-                  <div className="text-[10px] text-[#a7d5fa]">Enhanced Clarity</div>
+                  <div className="text-xs font-bold text-white">
+                    Human Expression
+                  </div>
+                  <div className="text-[10px] text-[#a7d5fa]">
+                    Enhanced Clarity
+                  </div>
                 </div>
               </motion.div>
 
@@ -215,16 +276,25 @@ export const HomePage: React.FC = () => {
                 transition={{
                   opacity: { duration: 0.6, delay: 0.7 },
                   x: { duration: 0.6, delay: 0.7 },
-                  y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }
+                  y: {
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  },
                 }}
-                className="absolute -bottom-4 -left-2 sm:-left-6 z-20 px-4 py-3 rounded-2xl bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 shadow-2xl flex items-center gap-3"
+                className="absolute -bottom-4 -left-2 sm:-left-6 z-20 px-4 py-3 rounded-2xl bg-linear-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 shadow-2xl flex items-center gap-3"
               >
                 <div className="p-2 rounded-xl bg-[#003152] text-white shadow-md">
                   <Cloud className="w-4 h-4 text-[#62aff0]" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Search Protocol</div>
-                  <div className="text-[10px] text-slate-200">Continuous Indexing</div>
+                  <div className="text-xs font-bold text-white">
+                    Search Protocol
+                  </div>
+                  <div className="text-[10px] text-slate-200">
+                    Continuous Indexing
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -245,16 +315,19 @@ export const HomePage: React.FC = () => {
                 Engineering Resilience & Innovation Since 2012.
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                Informatech was founded on a simple premise: enterprise technology transformations should be rigorous, transparent, and built to withstand decades of scale. We combine rigorous domain architecture with agile execution.
+                Informatech was founded on a simple premise: enterprise
+                technology transformations should be rigorous, transparent, and
+                built to withstand decades of scale. We combine rigorous domain
+                architecture with agile execution.
               </p>
 
               {/* Interactive Info Tabs */}
               <div className="pt-2">
                 <div className="flex gap-2 p-1.5 bg-slate-100 rounded-xl max-w-md">
                   {[
-                    { id: 'mission', label: 'Our Mission' },
-                    { id: 'architecture', label: 'Architecture First' },
-                    { id: 'security', label: 'Security Standard' },
+                    { id: "mission", label: "Our Mission" },
+                    { id: "architecture", label: "Architecture First" },
+                    { id: "security", label: "Security Standard" },
                   ].map((tab) => (
                     <button
                       key={tab.id}
@@ -262,8 +335,8 @@ export const HomePage: React.FC = () => {
                       onClick={() => setActiveTab(tab.id as any)}
                       className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                         activeTab === tab.id
-                          ? 'bg-[#003152] text-white shadow-sm'
-                          : 'text-slate-600 hover:text-slate-900'
+                          ? "bg-[#003152] text-white shadow-sm"
+                          : "text-slate-600 hover:text-slate-900"
                       }`}
                     >
                       {tab.label}
@@ -272,26 +345,38 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div className="mt-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-sm text-slate-700 leading-relaxed min-h-[110px]">
-                  {activeTab === 'mission' && (
+                  {activeTab === "mission" && (
                     <p>
-                      To empower global enterprises to turn complex technology challenges into decisive competitive advantages through battle-tested engineering, uncompromising security, and ethical AI development.
+                      To empower global enterprises to turn complex technology
+                      challenges into decisive competitive advantages through
+                      battle-tested engineering, uncompromising security, and
+                      ethical AI development.
                     </p>
                   )}
-                  {activeTab === 'architecture' && (
+                  {activeTab === "architecture" && (
                     <p>
-                      We never compromise on software design patterns. Our blueprints prioritize loose coupling, event-driven scaling, and modular microservices to eliminate technical debt before it begins.
+                      We never compromise on software design patterns. Our
+                      blueprints prioritize loose coupling, event-driven
+                      scaling, and modular microservices to eliminate technical
+                      debt before it begins.
                     </p>
                   )}
-                  {activeTab === 'security' && (
+                  {activeTab === "security" && (
                     <p>
-                      Every system we deploy adheres to strict Zero-Trust protocols. We integrate automated penetration testing and compliance audits directly into your continuous integration pipeline.
+                      Every system we deploy adheres to strict Zero-Trust
+                      protocols. We integrate automated penetration testing and
+                      compliance audits directly into your continuous
+                      integration pipeline.
                     </p>
                   )}
                 </div>
               </div>
 
               <div className="pt-2">
-                <Button variant="outline" onClick={() => handleNavClick('/gallery')}>
+                <Button
+                  variant="outline"
+                  onClick={() => handleNavClick("/gallery")}
+                >
                   View Gallery
                 </Button>
               </div>
@@ -330,11 +415,12 @@ export const HomePage: React.FC = () => {
                 Engineered for High-Stakes Enterprises.
               </h2>
               <p className="text-slate-600 max-w-xl mt-3 text-base">
-                Discover our specialized technology practice areas, built to modernize your infrastructure and accelerate growth.
+                Discover our specialized technology practice areas, built to
+                modernize your infrastructure and accelerate growth.
               </p>
             </div>
             <Button
-              onClick={() => handleNavClick('/services')}
+              onClick={() => handleNavClick("/services")}
               icon={<ArrowRight className="w-4 h-4" />}
               className="self-start md:self-auto shrink-0"
             >
@@ -345,11 +431,15 @@ export const HomePage: React.FC = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredServices.map((service) => (
-              <Card key={service.id} hoverEffect className="flex flex-col h-full bg-white p-8 group">
+              <Card
+                key={service.id}
+                hoverEffect
+                className="flex flex-col h-full bg-white p-8 group"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-[#003152]/10 text-[#003152] flex items-center justify-center mb-6 group-hover:bg-[#003152] group-hover:text-white transition-all duration-300">
                   <DynamicIcon name={service.iconName} className="w-7 h-7" />
                 </div>
-                
+
                 <span className="text-xs font-bold uppercase tracking-wider text-[#003152] mb-2">
                   {service.category}
                 </span>
@@ -363,9 +453,11 @@ export const HomePage: React.FC = () => {
                 </p>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                  <span className="text-xs font-semibold text-slate-500">Fixed & Agile Pods</span>
+                  <span className="text-xs font-semibold text-slate-500">
+                    Fixed & Agile Pods
+                  </span>
                   <button
-                    onClick={() => handleNavClick('/services')}
+                    onClick={() => handleNavClick("/services")}
                     className="inline-flex items-center gap-1.5 text-sm font-bold text-[#003152] group-hover:translate-x-1 transition-transform cursor-pointer"
                   >
                     <span>Learn more</span>
@@ -389,7 +481,8 @@ export const HomePage: React.FC = () => {
               The Informatech Engineering Standard.
             </h2>
             <p className="text-slate-600 mt-3 text-base">
-              Why leading enterprises select our team over traditional consulting conglomerates.
+              Why leading enterprises select our team over traditional
+              consulting conglomerates.
             </p>
           </div>
 
@@ -407,10 +500,16 @@ export const HomePage: React.FC = () => {
                     <span className="px-2.5 py-0.5 rounded-full bg-[#003152]/10 text-[#003152] font-mono text-xs font-bold">
                       {item.metric}
                     </span>
-                    <span className="text-xs font-semibold text-slate-500">{item.metricLabel}</span>
+                    <span className="text-xs font-semibold text-slate-500">
+                      {item.metricLabel}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -421,7 +520,7 @@ export const HomePage: React.FC = () => {
       {/* 5. MEET OUR TEAM SECTION */}
       <section className="py-24 bg-slate-900 text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full bg-[radial-gradient(ellipse_at_top,#00315240_0%,transparent_70%)] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#003152] border border-[#62aff0]/30 text-xs font-bold uppercase tracking-wider text-[#a7d5fa] mb-3">
@@ -431,7 +530,8 @@ export const HomePage: React.FC = () => {
               Meet the Team Behind Informatech.
             </h2>
             <p className="text-slate-300 text-sm mt-3 max-w-xl mx-auto">
-              A passionate group of developers, strategists, designers, and analysts dedicated to your success.
+              A passionate group of developers, strategists, designers, and
+              analysts dedicated to your success.
             </p>
           </div>
 
@@ -478,19 +578,20 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 6. CTA BANNER SECTION */}
-      <section className="py-20 bg-gradient-to-r from-[#003152] to-[#001c31] text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="py-20 bg-linear-to-r from-[#003152] to-[#001c31] text-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
             Ready to Architect Your Enterprise Transformation?
           </h2>
           <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto">
-            Book a 45-minute discovery consultation with one of our principal system architects to evaluate your cloud, security, or AI roadmaps.
+            Book a 45-minute discovery consultation with one of our principal
+            system architects to evaluate your cloud, security, or AI roadmaps.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <Button
               variant="white"
               size="lg"
-              onClick={() => handleNavClick('/contact')}
+              onClick={() => handleNavClick("/contact")}
               icon={<ArrowRight className="w-5 h-5" />}
             >
               Get in Touch Today
@@ -498,15 +599,21 @@ export const HomePage: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => handleNavClick('/services')}
+              onClick={() => handleNavClick("/services")}
               className="border-slate-400 text-white hover:bg-white/10"
             >
               Review Delivery Methodologies
             </Button>
           </div>
           <div className="pt-6 flex flex-wrap justify-center items-center gap-6 text-xs text-slate-300">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> Free 2-Week Architectural Review Available</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> NDA Signed Before First Discussion</span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Free 2-Week
+              Architectural Review Available
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> NDA Signed
+              Before First Discussion
+            </span>
           </div>
         </div>
       </section>
