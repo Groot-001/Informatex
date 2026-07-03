@@ -785,7 +785,7 @@ export interface QuickContact {
 export const QUICK_CONTACTS_DATA: QuickContact[] = [
   {
     id: "qc-1",
-    name: "Olivia Bennett",
+    name: "Alex",
     role: "Front Desk Coordinator",
     desk: "Main Reception · Lobby",
     avatar:
@@ -802,7 +802,7 @@ export const QUICK_CONTACTS_DATA: QuickContact[] = [
   },
   {
     id: "qc-2",
-    name: "James Walker",
+    name: "Alex",
     role: "Client Services Lead",
     desk: "Account Management Pod",
     avatar:
@@ -819,7 +819,7 @@ export const QUICK_CONTACTS_DATA: QuickContact[] = [
   },
   {
     id: "qc-3",
-    name: "Priya Sharma",
+    name: "Alex",
     role: "Partnerships & Media Desk",
     desk: "Business Development Suite",
     avatar:

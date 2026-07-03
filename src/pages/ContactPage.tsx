@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -25,7 +26,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string().min(3, { message: "Name must be at least 3 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   subject: z
     .string()
@@ -146,7 +147,7 @@ const QuickContactCard: React.FC<{ contact: QuickContact }> = ({ contact }) => {
 
 export const ContactPage: React.FC = () => {
   const office = OFFICES_DATA[0];
-  console.log("Office Data:", office);
+  // console.log("Office Data:", office);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -166,13 +167,13 @@ export const ContactPage: React.FC = () => {
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Simulate API dispatch delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    axios.post("https://formspree.io/f/xwvdwyqd", data);
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log("Form Submitted successfully:", data);
 
     // Trigger celebratory confetti
     confetti({
-      particleCount: 80,
+      particleCount: 120,
       spread: 70,
       origin: { y: 0.6 },
       colors: ["#003152", "#62aff0", "#10b981"],
