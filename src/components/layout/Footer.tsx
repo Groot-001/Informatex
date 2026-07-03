@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
     if (email && email.includes("@")) {
       setSubscribed(true);
       setEmail("");
-      setTimeout(() => setSubscribed(false), 5000);
+      setTimeout(() => setSubscribed(false), 1500);
     }
   };
 

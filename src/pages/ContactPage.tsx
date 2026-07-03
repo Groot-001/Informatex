@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -24,6 +23,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+// import { sendEmail } from "@/lib/email";
+import axios from "axios";
 
 const contactFormSchema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -168,6 +169,11 @@ export const ContactPage: React.FC = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     axios.post("https://formspree.io/f/xwvdwyqd", data);
+    // await sendEmail({
+    //   name: "Pratik",
+    //   email: "pratik@gmail.com",
+    //   message: "Hello",
+    // });
     // await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log("Form Submitted successfully:", data);
 
