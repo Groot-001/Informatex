@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Shield, CheckCircle2, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../ui/Accordion';
-import { useLenis } from '../../lib/SmoothScrollProvider';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Shield,
+  CheckCircle2,
+  MapPin,
+  Phone,
+  Mail,
+  ArrowUp,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "../ui/Accordion";
+import { useLenis } from "../../lib/SmoothScrollProvider";
 
 /* Lightweight inline brand icons (lucide-react no longer ships social/brand icons) */
 const LinkedinIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -30,14 +42,14 @@ const InstagramIcon: React.FC<{ className?: string }> = ({ className }) => (
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
   const lenis = useLenis();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && email.includes('@')) {
+    if (email && email.includes("@")) {
       setSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setSubscribed(false), 5000);
     }
   };
@@ -51,15 +63,15 @@ export const Footer: React.FC = () => {
     if (lenis) {
       lenis.scrollTo(0, { duration: 1.2 });
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const socialLinks = [
-    { icon: LinkedinIcon, label: 'LinkedIn', href: '#' },
-    { icon: TwitterIcon, label: 'Twitter / X', href: '#' },
-    { icon: GithubIcon, label: 'GitHub', href: '#' },
-    { icon: InstagramIcon, label: 'Instagram', href: '#' },
+    { icon: LinkedinIcon, label: "LinkedIn", href: "#" },
+    { icon: TwitterIcon, label: "Twitter / X", href: "#" },
+    { icon: GithubIcon, label: "GitHub", href: "#" },
+    { icon: InstagramIcon, label: "Instagram", href: "#" },
   ];
 
   return (
@@ -84,14 +96,19 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              We architect mission-critical cloud ecosystems, custom AI solutions, and military-grade cybersecurity infrastructure for Fortune 500 enterprises and global leaders.
+              We architect mission-critical cloud ecosystems, custom AI
+              solutions, and military-grade cybersecurity infrastructure for
+              Fortune 500 enterprises and global leaders.
             </p>
 
             {/* Stay Informed - Newsletter signup */}
             <div className="w-full max-w-sm">
-              <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">Stay Informed</h4>
+              <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+                Stay Informed
+              </h4>
               <p className="text-xs text-slate-400 mb-3">
-                Subscribe to our monthly briefing on enterprise AI benchmarks and zero-trust security bulletins.
+                Subscribe to our monthly briefing on enterprise AI benchmarks
+                and zero-trust security bulletins.
               </p>
               <form onSubmit={handleSubscribe} className="space-y-2">
                 <div className="flex gap-2">
@@ -112,7 +129,8 @@ export const Footer: React.FC = () => {
                 </div>
                 {subscribed && (
                   <p className="text-xs text-emerald-400 flex items-center justify-start gap-1 animate-fadeIn">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Subscribed successfully!
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Subscribed
+                    successfully!
                   </p>
                 )}
               </form>
@@ -134,35 +152,49 @@ export const Footer: React.FC = () => {
                 );
               })}
             </div>
-
-
           </div>
 
           {/* Company Links - Accordion on mobile, static list on tablet/desktop */}
           <div className="rounded-2xl bg-white/[0.04] border border-white/10 px-5 md:p-0 md:bg-transparent md:border-0 md:rounded-none">
             {/* Mobile: Accordion */}
-            <Accordion type="multiple" className="md:hidden" defaultValue={['company']}>
+            <Accordion
+              type="multiple"
+              className="md:hidden"
+              defaultValue={["company"]}
+            >
               <AccordionItem value="company">
                 <AccordionTrigger>Company</AccordionTrigger>
                 <AccordionContent>
                   <ul className="space-y-2.5 text-sm text-left">
                     <li>
-                      <button onClick={() => handleNavClick('/')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Company Overview
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Our Capabilities
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/gallery')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/gallery")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Gallery
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/contact')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/contact")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Global Locations
                       </button>
                     </li>
@@ -172,25 +204,39 @@ export const Footer: React.FC = () => {
             </Accordion>
             {/* Tablet & Desktop: Static list */}
             <div className="hidden md:block space-y-4">
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider">Company</h4>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                Company
+              </h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <button onClick={() => handleNavClick('/')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Company Overview
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Our Capabilities
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/gallery')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/gallery")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Gallery
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/contact')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/contact")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Global Locations
                   </button>
                 </li>
@@ -201,33 +247,52 @@ export const Footer: React.FC = () => {
           {/* Services Links - Accordion on mobile, static list on tablet/desktop */}
           <div className="rounded-2xl bg-white/[0.04] border border-white/10 px-5 md:p-0 md:bg-transparent md:border-0 md:rounded-none">
             {/* Mobile: Accordion */}
-            <Accordion type="multiple" className="md:hidden" defaultValue={['services']}>
+            <Accordion
+              type="multiple"
+              className="md:hidden"
+              defaultValue={["services"]}
+            >
               <AccordionItem value="services">
                 <AccordionTrigger>Services</AccordionTrigger>
                 <AccordionContent>
                   <ul className="space-y-2.5 text-sm text-slate-400 text-left">
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         App Development
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         SEO Optimization
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Technical Writing
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Data Analysis & Strategy
                       </button>
                     </li>
                     <li>
-                      <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                      <button
+                        onClick={() => handleNavClick("/services")}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
                         Social Media Marketing
                       </button>
                     </li>
@@ -237,30 +302,47 @@ export const Footer: React.FC = () => {
             </Accordion>
             {/* Tablet & Desktop: Static list */}
             <div className="hidden md:block space-y-4">
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider">Services</h4>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                Services
+              </h4>
               <ul className="space-y-2.5 text-sm text-slate-400">
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     App Development
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     SEO Optimization
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Technical Writing
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Data Analysis & Strategy
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavClick('/services')} className="hover:text-white transition-colors cursor-pointer">
+                  <button
+                    onClick={() => handleNavClick("/services")}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
                     Social Media Marketing
                   </button>
                 </li>
@@ -270,23 +352,36 @@ export const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div className="space-y-4 flex flex-col items-start sm:col-span-2 md:col-span-2 lg:col-span-1 rounded-2xl bg-white/[0.04] border border-white/10 p-5 md:p-0 md:bg-transparent md:border-0">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Get in Touch</h4>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+              Get in Touch
+            </h4>
             <p className="text-xs text-slate-400 max-w-xs">
-              Reach our global headquarters or connect with our regional teams directly.
+              Reach our global headquarters or connect with our regional teams
+              directly.
             </p>
 
             <div className="text-xs space-y-2 text-slate-400 w-full">
               <div className="flex items-center justify-start gap-2">
                 <MapPin className="w-4 h-4 text-[#62aff0] shrink-0" />
-                <span>450 Lexington Ave, New York, NY</span>
+                <span>Baluwatar, Kalikamarg, Kathmandu</span>
               </div>
               <div className="flex items-center justify-start gap-2">
                 <Phone className="w-4 h-4 text-[#62aff0] shrink-0" />
-                <a href="tel:+12125550190" className="hover:text-white transition-colors">+1 (212) 555-0190</a>
+                <a
+                  href="tel:+12125550190"
+                  className="hover:text-white transition-colors"
+                >
+                  +1 (212) 555-0190
+                </a>
               </div>
               <div className="flex items-center justify-start gap-2">
                 <Mail className="w-4 h-4 text-[#62aff0] shrink-0" />
-                <a href="mailto:hello@informatech.com" className="hover:text-white transition-colors">hello@informatech.com</a>
+                <a
+                  href="mailto:hr@informatextech.com"
+                  className="hover:text-white transition-colors"
+                >
+                  hr@informatextech.com
+                </a>
               </div>
             </div>
           </div>
@@ -298,9 +393,15 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Informatech Inc. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Security SLA</span>
+            <span className="hover:text-white transition-colors cursor-pointer">
+              Privacy Policy
+            </span>
+            <span className="hover:text-white transition-colors cursor-pointer">
+              Terms of Service
+            </span>
+            <span className="hover:text-white transition-colors cursor-pointer">
+              Security SLA
+            </span>
           </div>
         </div>
       </div>

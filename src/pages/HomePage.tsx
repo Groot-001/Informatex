@@ -31,7 +31,9 @@ export const HomePage: React.FC = () => {
     "mission" | "architecture" | "security"
   >("mission");
 
-  const featuredServices = SERVICES_DATA.filter((s) => s.featured);
+  const featuredServices = SERVICES_DATA.filter((service) =>
+    ["seo", "app-development", "data-analysis"].includes(service.id),
+  ); // Filter for featured services
 
   const handleNavClick = (path: string) => {
     navigate(path);

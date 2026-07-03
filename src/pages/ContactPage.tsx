@@ -1,22 +1,39 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import confetti from 'canvas-confetti';
-import { OFFICES_DATA, FAQ_DATA, QUICK_CONTACTS_DATA } from '../data/mockData';
-import { QuickContact } from '../types';
-import { PageHeader } from '../components/layout/PageHeader';
-import { Input, Textarea } from '../components/ui/FormControls';
-import { Button } from '../components/ui/Button';
-import { Card } from '../components/ui/Card';
-import { Phone, Mail, Clock, CheckCircle2, Send, HelpCircle, ChevronDown, ChevronUp, ExternalLink, Navigation, MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import confetti from "canvas-confetti";
+import { OFFICES_DATA, FAQ_DATA, QUICK_CONTACTS_DATA } from "../data/mockData";
+import { QuickContact } from "../types";
+import { PageHeader } from "../components/layout/PageHeader";
+import { Input, Textarea } from "../components/ui/FormControls";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
+import {
+  Phone,
+  Mail,
+  Clock,
+  CheckCircle2,
+  Send,
+  HelpCircle,
+  ChevronDown,
+  ChevronUp,
+  ExternalLink,
+  Navigation,
+  MessageCircle,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
-  subject: z.string().min(3, { message: 'Subject must be at least 3 characters.' }),
-  description: z.string().min(10, { message: 'Description must be at least 10 characters to ensure detailed routing.' })
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z
+    .string()
+    .min(3, { message: "Subject must be at least 3 characters." }),
+  description: z.string().min(10, {
+    message:
+      "Description must be at least 10 characters to ensure detailed routing.",
+  }),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -43,13 +60,18 @@ const QuickContactCard: React.FC<{ contact: QuickContact }> = ({ contact }) => {
               alt={contact.name}
               className="relative w-16 h-16 rounded-full object-cover border-2 border-white"
             />
-            <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white" title="Online" />
+            <span
+              className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white"
+              title="Online"
+            />
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="text-base font-bold text-slate-900 group-hover:text-[#003152] transition-colors">
               {contact.name}
             </h3>
-            <p className="text-xs font-semibold text-[#003152]">{contact.role}</p>
+            <p className="text-xs font-semibold text-[#003152]">
+              {contact.role}
+            </p>
             <p className="text-[11px] text-slate-500 mt-0.5">{contact.desk}</p>
           </div>
         </div>
@@ -57,7 +79,9 @@ const QuickContactCard: React.FC<{ contact: QuickContact }> = ({ contact }) => {
         {/* Response time badge */}
         <div className="mb-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 w-fit">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[11px] font-semibold text-emerald-700">{contact.responseTime}</span>
+          <span className="text-[11px] font-semibold text-emerald-700">
+            {contact.responseTime}
+          </span>
         </div>
 
         {/* Specialties tags */}
@@ -76,13 +100,19 @@ const QuickContactCard: React.FC<{ contact: QuickContact }> = ({ contact }) => {
         <div className="space-y-2.5 text-xs text-slate-600 border-t border-slate-100 pt-4">
           <div className="flex items-center gap-2.5">
             <Mail className="w-3.5 h-3.5 text-[#003152] shrink-0" />
-            <a href={`mailto:${contact.email}`} className="hover:text-[#003152] transition-colors truncate">
+            <a
+              href={`mailto:${contact.email}`}
+              className="hover:text-[#003152] transition-colors truncate"
+            >
               {contact.email}
             </a>
           </div>
           <div className="flex items-center gap-2.5">
             <Phone className="w-3.5 h-3.5 text-[#003152] shrink-0" />
-            <a href={`tel:${contact.phone}`} className="hover:text-[#003152] transition-colors">
+            <a
+              href={`tel:${contact.phone}`}
+              className="hover:text-[#003152] transition-colors"
+            >
               {contact.phone}
             </a>
           </div>
@@ -116,6 +146,7 @@ const QuickContactCard: React.FC<{ contact: QuickContact }> = ({ contact }) => {
 
 export const ContactPage: React.FC = () => {
   const office = OFFICES_DATA[0];
+  console.log("Office Data:", office);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -123,28 +154,28 @@ export const ContactPage: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      subject: '',
-      description: ''
-    }
+      name: "",
+      email: "",
+      subject: "",
+      description: "",
+    },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
     // Simulate API dispatch delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Form Submitted successfully:', data);
-    
+    console.log("Form Submitted successfully:", data);
+
     // Trigger celebratory confetti
     confetti({
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#003152', '#62aff0', '#10b981']
+      colors: ["#003152", "#62aff0", "#10b981"],
     });
 
     setIsSubmitted(true);
@@ -171,7 +202,9 @@ export const ContactPage: React.FC = () => {
                   Start Your Consultation
                 </h2>
                 <p className="text-slate-600 text-sm mt-1">
-                  Fill out the details below. Our technical routing system connects you directly to a senior lead within 4 business hours.
+                  Fill out the details below. Our technical routing system
+                  connects you directly to a senior lead within 4 business
+                  hours.
                 </p>
               </div>
 
@@ -184,9 +217,14 @@ export const ContactPage: React.FC = () => {
                   <div className="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/20">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Inquiry Received Successfully</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">
+                    Inquiry Received Successfully
+                  </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Informatech. Your request has been securely logged and assigned to our solutions engineering team. We will review your requirements and respond shortly.
+                    Thank you for reaching out to Informatech. Your request has
+                    been securely logged and assigned to our solutions
+                    engineering team. We will review your requirements and
+                    respond shortly.
                   </p>
                   <div className="pt-4">
                     <Button
@@ -207,7 +245,7 @@ export const ContactPage: React.FC = () => {
                       placeholder="e.g. Sarah Jenkins"
                       required
                       error={errors.name?.message}
-                      {...register('name')}
+                      {...register("name")}
                     />
                     <Input
                       label="Email"
@@ -215,7 +253,7 @@ export const ContactPage: React.FC = () => {
                       placeholder="s.jenkins@enterprise.com"
                       required
                       error={errors.email?.message}
-                      {...register('email')}
+                      {...register("email")}
                     />
                   </div>
 
@@ -224,7 +262,7 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. Multi-Region AWS Architecture Review"
                     required
                     error={errors.subject?.message}
-                    {...register('subject')}
+                    {...register("subject")}
                   />
 
                   <Textarea
@@ -232,7 +270,7 @@ export const ContactPage: React.FC = () => {
                     placeholder="Describe your technical roadmap, timeline, or infrastructure challenge..."
                     required
                     error={errors.description?.message}
-                    {...register('description')}
+                    {...register("description")}
                   />
 
                   <div className="pt-2 flex justify-end border-t border-slate-100">
@@ -261,7 +299,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    `${office.address}, ${office.city.split(' (')[0]}, ${office.country}`
+                    `${office.address}, ${office.city.split(" (")[0]}, ${office.country}`,
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -279,7 +317,7 @@ export const ContactPage: React.FC = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   src={`https://www.google.com/maps?q=${encodeURIComponent(
-                    `${office.address}, ${office.city.split(' (')[0]}, ${office.country}`
+                    `${office.address}, ${office.city.split(" (")[0]}, ${office.country}`,
                   )}&output=embed`}
                 />
 
@@ -289,7 +327,9 @@ export const ContactPage: React.FC = () => {
                     <Navigation className="w-3.5 h-3.5 text-[#003152] shrink-0" />
                     {office.city}
                   </span>
-                  <span className="text-[#003152] font-bold shrink-0 ml-2">Active Hub</span>
+                  <span className="text-[#003152] font-bold shrink-0 ml-2">
+                    Active Hub
+                  </span>
                 </div>
               </div>
             </Card>
@@ -306,7 +346,8 @@ export const ContactPage: React.FC = () => {
               Reach Our Front Desk
             </h2>
             <p className="text-slate-600 text-sm mt-2 max-w-2xl mx-auto">
-              Connect directly with the team members who can guide your inquiry to the right principal architect.
+              Connect directly with the team members who can guide your inquiry
+              to the right principal architect.
             </p>
           </div>
 
@@ -327,7 +368,8 @@ export const ContactPage: React.FC = () => {
               Engagement & Architecture FAQs
             </h2>
             <p className="text-slate-600 text-sm mt-1">
-              Common questions from executive stakeholders considering strategic technology partnerships.
+              Common questions from executive stakeholders considering strategic
+              technology partnerships.
             </p>
           </div>
 
@@ -343,16 +385,24 @@ export const ContactPage: React.FC = () => {
                     onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
                     className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   >
-                    <span className="font-bold text-slate-900 text-base">{faq.question}</span>
-                    <div className={`p-1.5 rounded-full transition-colors ${isOpen ? 'bg-[#003152] text-white' : 'bg-slate-100 text-slate-600'}`}>
-                      {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    <span className="font-bold text-slate-900 text-base">
+                      {faq.question}
+                    </span>
+                    <div
+                      className={`p-1.5 rounded-full transition-colors ${isOpen ? "bg-[#003152] text-white" : "bg-slate-100 text-slate-600"}`}
+                    >
+                      {isOpen ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </div>
                   </button>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >

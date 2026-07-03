@@ -83,37 +83,30 @@ export const SERVICES_DATA: ServiceItem[] = [
     },
   },
   {
-    id: "technical-writing",
-    title: "Technical Writing",
+    id: "data-strategy",
+    title: "Data Strategy",
     subtitle:
-      "Clear, accurate documentation that simplifies complex products and accelerates user adoption.",
+      "A roadmap for collecting, governing, and leveraging data as a strategic business asset.",
     description:
-      "We deliver precise, easy-to-understand documentation tailored to your audience. Our expert writers make complex information accessible, improving usability and customer satisfaction.",
-    category: "Content",
-    iconName: "FileText",
-    featured: true,
+      "Align data with business strategy through our custom solutions, maximizing the value of data to support growth and operational efficiency.",
+    category: "Analytics",
+    iconName: "GitBranch",
+    featured: false,
     fullDetails: {
       overview:
-        "We deliver precise, easy-to-understand documentation tailored to your audience. Our expert writers make complex information accessible, improving usability and customer satisfaction.",
+        "Align data with business strategy through our custom solutions, maximizing the value of data to support growth and operational efficiency.",
       keyFeatures: [
-        "API documentation and developer guides",
-        "Product manuals and end-user help centers",
-        "Knowledge base architecture and content strategy",
-        "Information architecture and content audits",
+        "Data maturity assessment and roadmap",
+        "Data governance and compliance frameworks",
+        "Cloud data architecture planning",
+        "Metrics definition and KPI alignment",
       ],
       deliverables: [
-        "Complete documentation suite in your preferred format",
-        "OpenAPI/Swagger-integrated API docs",
-        "Editorial style guide and maintenance plan",
+        "Comprehensive data strategy blueprint",
+        "Governance policy and data ownership model",
+        "Implementation roadmap and cost estimates",
       ],
-      technologies: [
-        "Markdown",
-        "Docusaurus",
-        "Slate",
-        "Confluence",
-        "Notion",
-        "Stoplight",
-      ],
+      technologies: ["AWS", "Azure", "Snowflake", "dbt", "Looker", "Tableau"],
     },
   },
   {
@@ -125,7 +118,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "We clean, model, and visualize your data to uncover trends, measure performance, and support strategic planning with evidence-backed recommendations.",
     category: "Analytics",
     iconName: "BarChart3",
-    featured: false,
+    featured: true,
     fullDetails: {
       overview:
         "Our data analysts turn fragmented datasets into coherent narratives, enabling leadership to act quickly and confidently on market and operational signals.",
@@ -147,6 +140,40 @@ export const SERVICES_DATA: ServiceItem[] = [
         "Power BI",
         "Google BigQuery",
         "Excel",
+      ],
+    },
+  },
+  {
+    id: "technical-writing",
+    title: "Technical Writing",
+    subtitle:
+      "Clear, accurate documentation that simplifies complex products and accelerates user adoption.",
+    description:
+      "We deliver precise, easy-to-understand documentation tailored to your audience. Our expert writers make complex information accessible, improving usability and customer satisfaction.",
+    category: "Content",
+    iconName: "FileText",
+    featured: false,
+    fullDetails: {
+      overview:
+        "We deliver precise, easy-to-understand documentation tailored to your audience. Our expert writers make complex information accessible, improving usability and customer satisfaction.",
+      keyFeatures: [
+        "API documentation and developer guides",
+        "Product manuals and end-user help centers",
+        "Knowledge base architecture and content strategy",
+        "Information architecture and content audits",
+      ],
+      deliverables: [
+        "Complete documentation suite in your preferred format",
+        "OpenAPI/Swagger-integrated API docs",
+        "Editorial style guide and maintenance plan",
+      ],
+      technologies: [
+        "Markdown",
+        "Docusaurus",
+        "Slate",
+        "Confluence",
+        "Notion",
+        "Stoplight",
       ],
     },
   },
@@ -211,34 +238,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     },
   },
   {
-    id: "data-strategy",
-    title: "Data Strategy",
-    subtitle:
-      "A roadmap for collecting, governing, and leveraging data as a strategic business asset.",
-    description:
-      "Align data with business strategy through our custom solutions, maximizing the value of data to support growth and operational efficiency.",
-    category: "Analytics",
-    iconName: "GitBranch",
-    featured: false,
-    fullDetails: {
-      overview:
-        "Align data with business strategy through our custom solutions, maximizing the value of data to support growth and operational efficiency.",
-      keyFeatures: [
-        "Data maturity assessment and roadmap",
-        "Data governance and compliance frameworks",
-        "Cloud data architecture planning",
-        "Metrics definition and KPI alignment",
-      ],
-      deliverables: [
-        "Comprehensive data strategy blueprint",
-        "Governance policy and data ownership model",
-        "Implementation roadmap and cost estimates",
-      ],
-      technologies: ["AWS", "Azure", "Snowflake", "dbt", "Looker", "Tableau"],
-    },
-  },
-  {
-    id: "seo",
+    id: "analytics",
     title: "SEO",
     subtitle:
       "A roadmap for collecting, governing, and leveraging data as a strategic business asset.",
@@ -759,13 +759,13 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
 
 export const OFFICES_DATA: OfficeLocation[] = [
   {
-    city: "New York (Global HQ)",
-    country: "United States",
-    address: "450 Lexington Avenue, Suite 3400, Midtown, NY 10017",
-    phone: "+1 (212) 555-0190",
-    email: "hello@informatech.com",
-    hours: "Mon - Fri: 8:00 AM - 6:00 PM EST",
-    coordinates: { x: 28, y: 35 },
+    city: "Kathmandu (Global HQ)",
+    country: "Nepal",
+    address: "BrahmabyteLab,Kathmandu, Bagmati Province, Nepal",
+    phone: "981-3440643",
+    email: "hr@informatextech.com",
+    hours: "Mon - Fri: 7:00 AM - 4:00 PM EST",
+    coordinates: { x: 77, y: 35 },
   },
 ];
 
@@ -863,7 +863,7 @@ export const FAQ_DATA = [
 export const TEAM_MEMBERS_DATA: TeamMember[] = [
   {
     id: "member-1",
-    name: "Sarah Chen",
+    name: "Alex",
     position: "Chief Executive Officer",
     avatar:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
@@ -871,7 +871,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   },
   {
     id: "member-2",
-    name: "Marcus Adeyemi",
+    name: "Alex",
     position: "Chief Technology Officer",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
@@ -879,7 +879,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   },
   {
     id: "member-3",
-    name: "Elena Rodriguez",
+    name: "Alex",
     position: "VP of Marketing & SEO",
     avatar:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
@@ -887,7 +887,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   },
   {
     id: "member-4",
-    name: "David Kim",
+    name: "Alex",
     position: "Head of Design",
     avatar:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
@@ -895,7 +895,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   },
   {
     id: "member-5",
-    name: "Aisha Patel",
+    name: "Alex",
     position: "Lead Data Analyst",
     avatar:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
@@ -903,7 +903,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   },
   {
     id: "member-6",
-    name: "James Okonkwo",
+    name: "Alex",
     position: "Head of Content & Technical Writing",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
