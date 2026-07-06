@@ -280,7 +280,7 @@ export const ContactPage: React.FC = () => {
                     {...register("description")}
                   />
 
-                  <div className="pt-2 flex justify-end border-t border-slate-100">
+                  <div className=" pt-2 flex justify-end border-t border-slate-100">
                     <Button
                       type="submit"
                       size="lg"

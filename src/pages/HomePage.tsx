@@ -104,10 +104,10 @@ export const HomePage: React.FC = () => {
                   Schedule Consultation
                 </Button>
                 <Button
-                  variant="outline"
+                  // variant="outline"
                   size="lg"
                   onClick={() => handleNavClick("/services")}
-                  className="w-full sm:w-auto border-slate-600 text-white hover:bg-white/10 hover:border-slate-400"
+                  className="w-full sm:w-auto shadow-xl shadow-brand-700/300"
                 >
                   Explore Capabilities
                 </Button>
